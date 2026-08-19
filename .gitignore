@@ -1,0 +1,12 @@
+build/
+cmake-build-*/
+.DS_Store
+*.user
+*.suo
+*.xcodeproj/
+*.xcworkspace/
+DerivedData/
+*.wav
+*.mp3
+*.mp4
+*.mov
