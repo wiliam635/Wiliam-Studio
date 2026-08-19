@@ -6,7 +6,7 @@ Base inicial do estúdio de gravação para aulas e demonstrações de teclado.
 
 - `index.html`: protótipo visual navegável do estúdio.
 - `NamedKeyboard.h`: teclado horizontal baseado em `juce::MidiKeyboardComponent`.
-- `ChordDetector.*`: identificação inicial de acordes, inversões e baixo separado.
+- `ChordDetector.*`: identificação inicial de acordes, extensões, inversões e baixo separado.
 - `MainComponent.*`: janela JUCE, seleção de dispositivo MIDI e estado visual único.
 - `CMakeLists.txt`: configuração para C++20 e JUCE externo.
 
@@ -19,7 +19,7 @@ cmake -B build -DJUCE_DIR=/caminho/para/JUCE
 cmake --build build --config Release
 ```
 
-O programa usa `juce::MidiKeyboardState` como fonte única das notas. A entrada MIDI é encaminhada ao estado e o teclado gráfico observa esse mesmo estado, evitando duas representações concorrentes das teclas.
+O programa usa `juce::MidiKeyboardState` como fonte única das notas. A entrada MIDI é encaminhada ao estado e o teclado gráfico observa esse mesmo estado, evitando duas representações concorrentes das teclas. O detector reconhece tríades, sus, diminutos, aumentados, acordes com 6, 7, maj7, 9, maj9, add9 e inversões com baixo separado.
 
 ## Próximas etapas
 

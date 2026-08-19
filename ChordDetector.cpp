@@ -19,8 +19,12 @@ ChordDetector::Result ChordDetector::detect(const juce::Array<int>& heldNotes) c
 
     struct Pattern { const char* suffix; std::initializer_list<int> intervals; };
     static const Pattern patterns[] {
-        { "maj7", { 0, 4, 7, 11 } }, { "m7", { 0, 3, 7, 10 } },
+        { "maj9", { 0, 2, 4, 7, 11 } }, { "9", { 0, 2, 4, 7, 10 } },
+        { "m9", { 0, 2, 3, 7, 10 } }, { "maj7", { 0, 4, 7, 11 } },
+        { "m7", { 0, 3, 7, 10 } },
         { "7", { 0, 4, 7, 10 } }, { "m7(b5)", { 0, 3, 6, 10 } },
+        { "m6", { 0, 3, 7, 9 } }, { "6", { 0, 4, 7, 9 } },
+        { "add9", { 0, 2, 4, 7 } }, { "m(add9)", { 0, 2, 3, 7 } },
         { "m", { 0, 3, 7 } }, { "", { 0, 4, 7 } },
         { "dim", { 0, 3, 6 } }, { "aug", { 0, 4, 8 } },
         { "sus4", { 0, 5, 7 } }, { "sus2", { 0, 2, 7 } }
