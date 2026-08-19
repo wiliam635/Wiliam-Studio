@@ -17,6 +17,8 @@
 <script>
   const whiteNotes=['C','D','E','F','G','A','B']; const keyboard=document.getElementById('keyboard');
   for(let i=0;i<29;i++){const w=document.createElement('div');w.className='white';w.dataset.note=whiteNotes[i%7];if(i%7===0||i===4)w.classList.add('active');w.innerHTML=`<span>${i%7===0?whiteNotes[i%7]+'3':''}</span>`;keyboard.appendChild(w);if(![2,6,9,13,16,20,23,27].includes(i%7)){const b=document.createElement('div');b.className='black';b.style.left=`${(i+0.66)/29*100}%`;if(i===0||i===3)b.classList.add('active');keyboard.appendChild(b)}}
+  const demoChords=['Cmaj7','Am7','Fmaj7','G7','Dm7(9)','Cadd9']; let demoIndex=0;
+  keyboard.addEventListener('click', event=>{const key=event.target.closest('.white,.black');if(!key)return;key.classList.toggle('active');const active=keyboard.querySelectorAll('.active').length;document.getElementById('chord').textContent=demoChords[(active+demoIndex++)%demoChords.length];document.getElementById('chordInput').value=document.getElementById('chord').textContent});
   const bind=(input,out)=>input.addEventListener('input',()=>out.textContent=input.value);bind(document.getElementById('titleInput'),document.getElementById('titlePreview'));bind(document.getElementById('songInput'),document.getElementById('songPreview'));bind(document.getElementById('chordInput'),document.getElementById('chord'));
   document.getElementById('calibrate').onclick=()=>document.getElementById('calibration').classList.toggle('show');
   document.getElementById('fullscreen').onclick=()=>document.documentElement.requestFullscreen?.();
